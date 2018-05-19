@@ -34,7 +34,7 @@ matrix:
       after_success:
             - git clone git://github.com/idubrov/covertool.git
             - cd covertool && make compile && cd ..
-            - ./covertool/covertool -cover .eunit/cover.coverdata
+            - find .eunit/ -name *.coverdata -exec ./covertool/covertool -cover {} -output {}.xml \;
             - rm -rf covertool/
             - bash <(curl -s https://codecov.io/bash)
 
