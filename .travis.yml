@@ -35,6 +35,7 @@ matrix:
             - git clone git://github.com/idubrov/covertool.git
             - cd covertool && make compile && cd ..
             - find .eunit/ -name *.coverdata -exec ./covertool/covertool -cover {} -output {}.xml \;
+            - mv .eunit/*.xml .
             - rm -rf covertool/
             - bash <(curl -s https://codecov.io/bash)
 
